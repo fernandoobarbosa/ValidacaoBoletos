@@ -27,9 +27,9 @@ app.get("/boleto/:codigo",verificarTextoNoParametro,verificarTamanho,(req,res)=>
     
     function verificarTamanho(req,res,next){
         //json com mensagem e status 400
-        if(req.params.codigo.length!='47'){
+        if(req.params.codigo.length!==47){
             
-            if(req.params.codigo.length=='44'){
+            if(req.params.codigo.length===44){
                 
             }
             else{

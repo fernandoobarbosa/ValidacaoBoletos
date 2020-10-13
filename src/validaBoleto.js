@@ -2,7 +2,7 @@ export const validaBoleto =(parametro)=>{
     
     
     //divisão do parametro em blocos 
-    var camposDoBoleto =  {
+    const camposDoBoleto =  {
         bloco1 : parametro.slice(0,9),
         digitoVer1: parametro.slice(9,10),
         bloco2 : parametro.slice(10,20),
@@ -18,7 +18,7 @@ export const validaBoleto =(parametro)=>{
         
     }
     
-    var camposConvenio = {
+    const camposConvenio = {
         idProduto: parametro.slice(0,1),
         idSegmento: parametro.slice(1,2),
         idValorReal:parametro.slice(2,3),
@@ -43,9 +43,9 @@ export const validaBoleto =(parametro)=>{
     var digitoVerificadorConvenio = calculoDigitoVerificadorConvenio(linhaParaCalculoConvenio)
     
     
-    if(parametro.length == '47'){
+    if(parametro.length === 47){
         //checagem dos digitos verificadores
-        if(digitoVerificador1===parseInt(camposDoBoleto.digitoVer1)&&digitoVerificador2===parsInt(camposDoBoleto.digitoVer2)&&
+        if(digitoVerificador1===parseInt(camposDoBoleto.digitoVer1)&&digitoVerificador2===parseInt(camposDoBoleto.digitoVer2)&&
             digitoVerificador3===parseInt(camposDoBoleto.digitoVer3)){
                 
                 //Json com os campos solicitados e status http 200
@@ -82,7 +82,7 @@ export const validaBoleto =(parametro)=>{
                 throw new Error ('Digito verificador incorreto')
             }
             
-        }
+        }}
         
         
         function calculoDigitoVerificador2e3(array){
@@ -90,7 +90,7 @@ export const validaBoleto =(parametro)=>{
             var somaTotal = 0
             for(var i=0;i<array.length;i++){
                 
-                if(i%2==0){
+                if(i%2===0){
                     somaTotal = parseInt(somaTotal) + parseInt(array[i])
                     
                 }
@@ -114,7 +114,7 @@ export const validaBoleto =(parametro)=>{
                 var somaTotal = 0;
                 for (var i = 0; i < array.length; i++) {
                     
-                    if(i%2==0){
+                    if(i%2===0){
                         var mult = parseInt(array[i])*2
                         if(mult>9){
                             var digitos = (""+mult).split("");
@@ -139,7 +139,7 @@ export const validaBoleto =(parametro)=>{
                     var somaTotal = 0;
                     for (var i = 0; i < array.length; i++) {
                         
-                        if(i%2==0){
+                        if(i%2===0){
                             var mult = parseInt(array[i])*2
                             if(mult>9){
                                 var digitos = (""+mult).split("");
@@ -156,7 +156,7 @@ export const validaBoleto =(parametro)=>{
                             }
                         }
                         
-                        if(somaTotal%10 ==0){
+                        if(somaTotal%10===0){
                             return 0
                         }else{
                             return 10 - somaTotal%10}
@@ -193,4 +193,4 @@ export const validaBoleto =(parametro)=>{
                         }
                         
                         
-                    }
+                    
