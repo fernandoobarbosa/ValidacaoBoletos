@@ -1,5 +1,5 @@
 # Validação de boletos
-Aplicação para validação de linha digitável de boleto bancários e pagamentos de concessionárias 
+Aplicação para validação de linha digitável de boletos bancários e pagamentos de concessionárias 
 
 ## Iniciando
 Acesse a pasta do projeto, abra ela no terminal, execute o comando npm install e quando finalizar a instalação das dependências execute o comando npm run start
@@ -19,7 +19,7 @@ Rotas Disponíveis:
             - Status 400: Erro na linha digitável. Consulte "mensagem" no corpo da request para mais informações.
 
 
-## Authors
+## Autores
 
 * **Fernando Luiz de Carvalho Barbosa** 
 
