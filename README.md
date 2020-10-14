@@ -2,10 +2,10 @@
 Aplicação para validação de linha digitável de boletos bancários e pagamentos de concessionárias 
 
 ## Iniciando
-###Acesse a pasta do projeto
-###Abra ela no terminal 
-##Execute o comando npm install
-##Execute o comando npm run start
+-Acesse a pasta do projeto
+-Abra ela no terminal 
+-Execute o comando npm install
+-Execute o comando npm run start
 
 ### Pré requisitos
 
