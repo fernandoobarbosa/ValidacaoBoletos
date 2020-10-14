@@ -9,7 +9,7 @@ app.use(bodyParser.json())
 
 app.get("/boleto/:codigo",verificarTextoNoParametro,verificarTamanho,(req,res)=>{
     
-    var parametro = req.params.codigo
+    const parametro = req.params.codigo
 
     try{const values = validaBoleto(parametro)
         res.status(200).send(values)

@@ -31,16 +31,16 @@ export const validaBoleto =(parametro)=>{
     
     //cálculo do digito verificador
     
-    var digitoVerificador1 =  calculoDigitoVerificador(camposDoBoleto.bloco1)
+    const digitoVerificador1 =  calculoDigitoVerificador(camposDoBoleto.bloco1)
     
-    var digitoVerificador2 = calculoDigitoVerificador2e3(camposDoBoleto.bloco2)
+    const digitoVerificador2 = calculoDigitoVerificador2e3(camposDoBoleto.bloco2)
     
-    var digitoVerificador3 = calculoDigitoVerificador2e3(camposDoBoleto.bloco3)    
+    const digitoVerificador3 = calculoDigitoVerificador2e3(camposDoBoleto.bloco3)    
     
-    var linhaParaCalculoConvenio = camposConvenio.idProduto + camposConvenio.idSegmento +
+    const linhaParaCalculoConvenio = camposConvenio.idProduto + camposConvenio.idSegmento +
     camposConvenio.idValorReal + camposConvenio.digitosParaCalculo
     
-    var digitoVerificadorConvenio = calculoDigitoVerificadorConvenio(linhaParaCalculoConvenio)
+    const digitoVerificadorConvenio = calculoDigitoVerificadorConvenio(linhaParaCalculoConvenio)
     
     
     if(parametro.length === 47){
@@ -49,7 +49,7 @@ export const validaBoleto =(parametro)=>{
             digitoVerificador3===parseInt(camposDoBoleto.digitoVer3)){
                 
                 //Json com os campos solicitados e status http 200
-                var resposta = {
+                const resposta = {
                     barCode:codigoDeBarras(camposDoBoleto),
                     amount:valorDoBoleto(camposDoBoleto),
                     expirationDate:dataVencimento(camposDoBoleto)
@@ -69,7 +69,7 @@ export const validaBoleto =(parametro)=>{
             
             if(digitoVerificadorConvenio === parseInt(camposConvenio.digitoVerificadorConv)){
                 
-                var respostaConv = {
+                const respostaConv = {
                     
                     amount:valorDoBoleto(camposConvenio),
                     barCode:parametro,
@@ -166,18 +166,18 @@ export const validaBoleto =(parametro)=>{
                         
                         function valorDoBoleto(camposDoBoleto) {
                             
-                            var valorFormatado = camposDoBoleto.valorBoleto.slice(0,8) + '.' +camposDoBoleto.valorBoleto.slice(8,10)
-                            var valorFormatadoFloat = parseFloat(valorFormatado)
-                            var valorDecimal = valorFormatadoFloat.toFixed(2)  
+                            const valorFormatado = camposDoBoleto.valorBoleto.slice(0,8) + '.' +camposDoBoleto.valorBoleto.slice(8,10)
+                            const valorFormatadoFloat = parseFloat(valorFormatado)
+                            const valorDecimal = valorFormatadoFloat.toFixed(2)  
                             
                             return valorDecimal
                         }
                         
                         function dataVencimento(camposDoBoleto){
-                            var data = parseInt(camposDoBoleto.fatorVencimento) - 1000
-                            var date = new Date('07/03/2000');
+                            const data = parseInt(camposDoBoleto.fatorVencimento) - 1000
+                            const date = new Date('07/03/2000');
                             date.setDate(date.getDate()+data);
-                            var dateString = new Date(date.getTime() - (date.getTimezoneOffset() * 60000 )) .toISOString() .split("T")[0];
+                            const dateString = new Date(date.getTime() - (date.getTimezoneOffset() * 60000 )) .toISOString() .split("T")[0];
                             
                             return dateString
                             
@@ -185,7 +185,7 @@ export const validaBoleto =(parametro)=>{
                         
                         function codigoDeBarras(camposDoBoleto){
                             
-                            var code = camposDoBoleto.codigoBanco + camposDoBoleto.codigoMoeda +
+                            const code = camposDoBoleto.codigoBanco + camposDoBoleto.codigoMoeda +
                             camposDoBoleto.digitoBoleto + camposDoBoleto.fatorVencimento + camposDoBoleto.valorBoleto
                             +camposDoBoleto.bloco1.slice(4,9) + camposDoBoleto.bloco2 + camposDoBoleto.bloco3 
                             
