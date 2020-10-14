@@ -2,7 +2,7 @@
 Aplicação para validação de linha digitável de boleto bancários e pagamentos de concessionárias 
 
 ## Iniciando
-Execute o comando npm install no terminal dentro da pasta do projeto para baixar as dependências, após isso execute o comando npm run start
+Acesse a pasta do projeto, abra ela no terminal, execute o comando npm install e quando finalizar a instalação das dependências execute o comando npm run start
 
 ### Pré requisitos
 
@@ -10,7 +10,13 @@ NodeJs instalado
 
 ## Rodando o programa
 
-Acesse o endereço 8080/boleto/(linha digitável) 
+Rotas Disponíveis:
+
+    GET /boleto/:linha
+        linha - Linha digitável do boleto
+        Retornos:
+            - Status 200: Boleto válido
+            - Status 400: Erro na linha digitável. Consulte "mensagem" no corpo da request para mais informações.
 
 
 ## Authors
